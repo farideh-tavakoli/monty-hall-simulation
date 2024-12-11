@@ -1,7 +1,8 @@
 import random
+from typing import Tuple
 
 
-def monty_hall_game(switch_door):
+def monty_hall_game(switch_door: bool) -> bool:
     doors = ['car', 'goat', 'goat']
     random.shuffle(doors)
 
@@ -18,7 +19,7 @@ def monty_hall_game(switch_door):
     return doors[final_choice] == 'car'
 
 
-def simulate_game(num_games):
+def simulate_game(num_games: int) -> Tuple[float, float]:
     num_wins_without_switching = sum([monty_hall_game(False) for _ in range(num_games)])
     num_wins_with_switching = sum([monty_hall_game(True) for _ in range(num_games)])
 
